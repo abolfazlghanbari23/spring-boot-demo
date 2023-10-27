@@ -1,6 +1,7 @@
 package com.abolfazl.demo.model;
 
-import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Student {
 
@@ -18,14 +19,17 @@ public class Student {
         this.gender = gender;
     }
 
+    @JsonIgnore
     public Long getStudentId() {
         return studentId;
     }
 
+    @JsonProperty("first_name")
     public String getFirstName() {
         return firstName;
     }
 
+    @JsonProperty("last_name")
     public String getLastName() {
         return lastName;
     }
