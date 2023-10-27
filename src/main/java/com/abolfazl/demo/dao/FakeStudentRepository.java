@@ -1,13 +1,10 @@
 package com.abolfazl.demo.dao;
 
 import com.abolfazl.demo.model.Student;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
 import java.util.List;
 
-@Repository
 public class FakeStudentRepository implements StudentRepository {
     @Override
     public List<Student> getAllStudents() {

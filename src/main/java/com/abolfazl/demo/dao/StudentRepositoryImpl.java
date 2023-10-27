@@ -1,17 +1,12 @@
 package com.abolfazl.demo.dao;
 
 import com.abolfazl.demo.model.Student;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
-@Primary
 public class StudentRepositoryImpl implements StudentRepository {
 
     private static Map<Long, Student> database;
