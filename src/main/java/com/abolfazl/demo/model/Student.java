@@ -11,15 +11,18 @@ public class Student {
     private final String email;
     private final Gender gender;
 
-    public Student(Long studentId, String firstName, String lastName, String email, Gender gender) {
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private final String password;
+
+    public Student(Long studentId, String password, String firstName, String lastName, String email, Gender gender) {
         this.studentId = studentId;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
     }
 
-    @JsonIgnore
     public Long getStudentId() {
         return studentId;
     }
@@ -40,6 +43,23 @@ public class Student {
 
     public Gender getGender() {
         return gender;
+    }
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public enum Gender {MALE, FEMALE}

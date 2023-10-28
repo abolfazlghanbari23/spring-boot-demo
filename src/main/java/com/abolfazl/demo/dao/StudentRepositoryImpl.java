@@ -13,9 +13,9 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     static {
         database = new HashMap<>();
-        database.put(1L, new Student(1L, "Ali", "Ahmadi", "a.ahmadi@gmail.com", Student.Gender.MALE));
-        database.put(2L, new Student(2L, "Rostam", "Ghaderi", "r.ghaderi@gmail.com", Student.Gender.MALE));
-        database.put(3L, new Student(3L, "Maryam", "Jalali", "m.jalali@yahoo.com", Student.Gender.FEMALE));
+        database.put(1L, new Student(1L, "!@#tgdr", "Ali", "Ahmadi", "a.ahmadi@gmail.com", Student.Gender.MALE));
+        database.put(2L, new Student(2L, "%^&fghng", "Rostam", "Ghaderi", "r.ghaderi@gmail.com", Student.Gender.MALE));
+        database.put(3L, new Student(3L, "*&+ddfbg", "Maryam", "Jalali", "m.jalali@yahoo.com", Student.Gender.FEMALE));
     }
 
     @Override

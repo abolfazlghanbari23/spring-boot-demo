@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class StudentService {
@@ -22,19 +21,23 @@ public class StudentService {
         return studentRepository.getAllStudents();
     }
 
-    public Student getStudent(UUID sId) {
-        return null;
+    public Student getStudent(Long sId) {
+        return studentRepository.getAllStudents()
+                .stream()
+                .filter(student -> student.getStudentId().equals(sId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("student not found"));
     }
 
     public int updateStudent(Student student) {
         return 1;
     }
 
-    public int insertStudent(UUID sid, Student student) {
+    public int insertStudent(Long sid, Student student) {
         return 1;
     }
 
-    public int removeStudent(UUID sid) {
+    public int removeStudent(Long sid) {
         return 1;
     }
 }
