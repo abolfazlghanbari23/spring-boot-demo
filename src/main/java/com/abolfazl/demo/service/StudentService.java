@@ -1,6 +1,7 @@
 package com.abolfazl.demo.service;
 
 import com.abolfazl.demo.dao.StudentRepository;
+import com.abolfazl.demo.exception.NotFoundException;
 import com.abolfazl.demo.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class StudentService {
                 .stream()
                 .filter(student -> student.getStudentId().equals(sId))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("student with id: " + sId + " not found"));
+                .orElseThrow(() -> new NotFoundException("student with id: " + sId + " not found"));
     }
 
     public int updateStudent(Student student) {

@@ -1,5 +1,6 @@
 package com.abolfazl.demo.controller;
 
+import com.abolfazl.demo.exception.ApiRequestException;
 import com.abolfazl.demo.model.Student;
 import com.abolfazl.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,13 @@ public class StudentController {
     @GetMapping(path = "{studentId}")
     public Student getStudent(@PathVariable("studentId") Long id) {
         return studentService.getStudent(id);
+    }
+
+    @GetMapping(path = "{studentId}/exception")
+    public Student getStudentException(@PathVariable("studentId") Long id) {
+        throw new ApiRequestException(
+                "apiRequest for customer " + id
+        );
     }
 
     @PostMapping
