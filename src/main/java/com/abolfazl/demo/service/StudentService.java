@@ -26,7 +26,7 @@ public class StudentService {
                 .stream()
                 .filter(student -> student.getStudentId().equals(sId))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("student not found"));
+                .orElseThrow(() -> new IllegalStateException("student with id: " + sId + " not found"));
     }
 
     public int updateStudent(Student student) {
