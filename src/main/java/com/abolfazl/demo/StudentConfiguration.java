@@ -18,11 +18,4 @@ public class StudentConfiguration {
     CommandLineRunner commandLineRunner() {
         return args -> System.out.println("commandLineRunner ok");
     }
-
-    @Bean
-    StudentRepository studentRepository() {
-        return useFakeStudentRepo ?
-                new FakeStudentRepository() :
-                new StudentRepositoryImpl();
-    }
 }

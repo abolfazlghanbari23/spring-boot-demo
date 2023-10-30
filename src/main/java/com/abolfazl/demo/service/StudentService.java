@@ -1,6 +1,6 @@
 package com.abolfazl.demo.service;
 
-import com.abolfazl.demo.dao.StudentRepository;
+import com.abolfazl.demo.dao.StudentRepositoryImpl;
 import com.abolfazl.demo.exception.NotFoundException;
 import com.abolfazl.demo.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,22 +11,19 @@ import java.util.List;
 @Service
 public class StudentService {
 
-    private StudentRepository studentRepository;
+    private StudentRepositoryImpl studentRepository;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepositoryImpl studentRepository) {
         this.studentRepository = studentRepository;
     }
 
     public List<Student> getAllStudents() {
-        return studentRepository.getAllStudents();
+        return studentRepository.findAll();
     }
 
     public Student getStudent(Long sId) {
-        return studentRepository.getAllStudents()
-                .stream()
-                .filter(student -> student.getStudentId().equals(sId))
-                .findFirst()
+        return studentRepository.findById(sId)
                 .orElseThrow(() -> new NotFoundException("student with id: " + sId + " not found"));
     }
 
